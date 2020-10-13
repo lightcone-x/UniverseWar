@@ -41,11 +41,16 @@ public class SpaceShip : MonoBehaviour
     public Vector3 centerOfMass;
     public Rigidbody rb;
 
-    Rigidbody rigi;
-    private Dictionary<string, Transform> flame_Effects; // 特效对应表  喷火口名——喷火口的火焰特效
+    public Rigidbody rigi;
+    public Dictionary<string, Transform> flame_Effects; // 特效对应表  喷火口名——喷火口的火焰特效
+
+    public ShipMachine shipMachine;  // 状态驱动机
+
+   
 
     void Start()
     {
+        shipMachine = new ShipMachine(this);
         rigi = gameObject.GetComponent<Rigidbody>();
         rb.centerOfMass = centerOfMass;
         InitAllEffect();
@@ -54,15 +59,19 @@ public class SpaceShip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         
-
-
 
 
     }
 
     private void FixedUpdate()
     {
+
+        shipMachine.OnFixedUpdate();
+
+        return;
 
         if (Input.GetKey(KeyCode.W))
         {
