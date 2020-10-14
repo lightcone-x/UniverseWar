@@ -13,7 +13,7 @@ public class State_SAS : BaseState
 
     public override void OnEnter()
     {
-        spaceShip.rigi.angularDrag = 1;  // 当sas开启 rcs关闭时 旋转阻力为1（姿态稳定）
+        spaceShip.rigi.angularDrag = 0.01f;  // 当sas开启 rcs关闭时 旋转阻力为1（姿态稳定）
     }
 
     public override void OnFixedUpdate()

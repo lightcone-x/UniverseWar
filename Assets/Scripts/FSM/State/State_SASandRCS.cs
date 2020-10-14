@@ -11,7 +11,7 @@ public class State_SASandRCS : BaseState
 
     public override void OnEnter()
     {
-        spaceShip.rigi.angularDrag = 1;  // 当sas rcs同时开启时 旋转阻力为1（姿态稳定）
+        spaceShip.rigi.angularDrag = spaceShip.RcsEngine;  // 当sas rcs同时开启时 旋转阻力为1（姿态稳定）
     }
 
     public override void OnFixedUpdate()

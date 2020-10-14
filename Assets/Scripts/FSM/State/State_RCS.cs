@@ -10,7 +10,7 @@ public class State_RCS : BaseState
     }
     public override void OnEnter()
     {
-        spaceShip.rigi.angularDrag = 0;  // 当sas关闭 rcs开启时 旋转阻力为0（取消姿态稳定）
+        spaceShip.rigi.angularDrag = spaceShip.SasForce;  // 当sas关闭 rcs开启时 旋转阻力为0（取消姿态稳定）
 
     }
 
