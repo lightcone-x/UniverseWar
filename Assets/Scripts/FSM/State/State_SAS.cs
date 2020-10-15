@@ -13,7 +13,7 @@ public class State_SAS : BaseState
 
     public override void OnEnter()
     {
-        spaceShip.rigi.angularDrag = 0.01f;  // 当sas开启 rcs关闭时 旋转阻力为1（姿态稳定）
+        spaceShip.rigi.angularDrag = spaceShip.SasForce;  // 当sas开启 rcs关闭时 旋转阻力为1（姿态稳定）
     }
 
     public override void OnFixedUpdate()
@@ -48,16 +48,16 @@ public class State_SAS : BaseState
 
         if (Input.GetKey(KeyCode.Q))
         {
-            //Vector3 force = spaceShip.transform.up * spaceShip.RcsEngine;
-            //Vector3 force1 = spaceShip.transform.up * -spaceShip.RcsEngine;
+            Vector3 force = spaceShip.transform.up * spaceShip.RcsEngine;
+            Vector3 force1 = spaceShip.transform.up * -spaceShip.RcsEngine;
 
 
-            //spaceShip.rigi.AddForceAtPosition(force, spaceShip.flame_Effects["right_up"].transform.position);
-            //spaceShip.rigi.AddForceAtPosition(force1, spaceShip.flame_Effects["left_down"].transform.position);
+            spaceShip.rigi.AddForceAtPosition(force, spaceShip.flame_Effects["right_up"].transform.position);
+            spaceShip.rigi.AddForceAtPosition(force1, spaceShip.flame_Effects["left_down"].transform.position);
 
 
 
-            spaceShip.transform.Rotate(Vector3.forward * spaceShip.SasForce);
+            //spaceShip.transform.Rotate(Vector3.forward * spaceShip.SasForce);
 
             /*Vector3 force = transform.forward * -RcsEngine;
             Vector3 force1 = transform.forward * RcsEngine;
@@ -73,24 +73,24 @@ public class State_SAS : BaseState
 
         if (Input.GetKey(KeyCode.E))
         {
-            spaceShip.transform.Rotate(Vector3.forward * -spaceShip.SasForce);
+            //spaceShip.transform.Rotate(Vector3.forward * -spaceShip.SasForce);
 
-            //Vector3 force = spaceShip.transform.up * -spaceShip.RcsEngine;
-            //Vector3 force1 = spaceShip.transform.up * spaceShip.RcsEngine;
+            Vector3 force = spaceShip.transform.up * -spaceShip.RcsEngine;
+            Vector3 force1 = spaceShip.transform.up * spaceShip.RcsEngine;
 
 
-            //spaceShip.rigi.AddForceAtPosition(force, spaceShip.flame_Effects["right_down"].transform.position);
-            //spaceShip.rigi.AddForceAtPosition(force1, spaceShip.flame_Effects["left_up"].transform.position);
+            spaceShip.rigi.AddForceAtPosition(force, spaceShip.flame_Effects["right_down"].transform.position);
+            spaceShip.rigi.AddForceAtPosition(force1, spaceShip.flame_Effects["left_up"].transform.position);
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            //Vector3 force = spaceShip.transform.up * -spaceShip.RcsEngine;
-            //Vector3 force1 = spaceShip.transform.up * spaceShip.RcsEngine;
+            Vector3 force = spaceShip.transform.up * -spaceShip.RcsEngine;
+            Vector3 force1 = spaceShip.transform.up * spaceShip.RcsEngine;
 
 
-            //spaceShip.rigi.AddForceAtPosition(force, spaceShip.flame_Effects["up_forward"].transform.position);
-            //spaceShip.rigi.AddForceAtPosition(force1, spaceShip.flame_Effects["down_back"].transform.position);
+            spaceShip.rigi.AddForceAtPosition(force, spaceShip.flame_Effects["up_forward"].transform.position);
+            spaceShip.rigi.AddForceAtPosition(force1, spaceShip.flame_Effects["down_back"].transform.position);
 
             /*Vector3 force = transform.forward * RcsEngine;
             Vector3 force1 = transform.forward * -RcsEngine;
@@ -125,37 +125,37 @@ public class State_SAS : BaseState
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            //Vector3 force = spaceShip.transform.up * spaceShip.RcsEngine;
-            //Vector3 force1 = spaceShip.transform.up * -spaceShip.RcsEngine;
+            Vector3 force = spaceShip.transform.up * spaceShip.RcsEngine;
+            Vector3 force1 = spaceShip.transform.up * -spaceShip.RcsEngine;
 
-            //spaceShip.rigi.AddForceAtPosition(force, spaceShip.flame_Effects["down_forward"].transform.position);
-            //spaceShip.rigi.AddForceAtPosition(force1, spaceShip.flame_Effects["up_back"].transform.position);
+            spaceShip.rigi.AddForceAtPosition(force, spaceShip.flame_Effects["down_forward"].transform.position);
+            spaceShip.rigi.AddForceAtPosition(force1, spaceShip.flame_Effects["up_back"].transform.position);
 
-            spaceShip.transform.Rotate(-Vector3.right * spaceShip.SasForce);
+            //spaceShip.transform.Rotate(-Vector3.right * spaceShip.SasForce);
 
 
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            //Vector3 force = spaceShip.transform.forward * spaceShip.RcsEngine;
-            //Vector3 force1 = spaceShip.transform.forward * -spaceShip.RcsEngine;
+            Vector3 force = spaceShip.transform.forward * spaceShip.RcsEngine;
+            Vector3 force1 = spaceShip.transform.forward * -spaceShip.RcsEngine;
 
-            //spaceShip.rigi.AddForceAtPosition(force, spaceShip.flame_Effects["right_forward"].transform.position);
-            //spaceShip.rigi.AddForceAtPosition(force1, spaceShip.flame_Effects["left_back"].transform.position);
+            spaceShip.rigi.AddForceAtPosition(force, spaceShip.flame_Effects["right_forward"].transform.position);
+            spaceShip.rigi.AddForceAtPosition(force1, spaceShip.flame_Effects["left_back"].transform.position);
 
 
-            spaceShip.transform.Rotate(-Vector3.up * spaceShip.SasForce);
+            //spaceShip.transform.Rotate(-Vector3.up * spaceShip.SasForce);
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            //Vector3 force = spaceShip.transform.forward * spaceShip.RcsEngine;
-            //Vector3 force1 = spaceShip.transform.forward * -spaceShip.RcsEngine;
+            Vector3 force = spaceShip.transform.forward * spaceShip.RcsEngine;
+            Vector3 force1 = spaceShip.transform.forward * -spaceShip.RcsEngine;
 
-            //spaceShip.rigi.AddForceAtPosition(force, spaceShip.flame_Effects["left_forward"].transform.position);
-            //spaceShip.rigi.AddForceAtPosition(force1, spaceShip.flame_Effects["right_back"].transform.position);
-            spaceShip.transform.Rotate(Vector3.up * spaceShip.SasForce);
+            spaceShip.rigi.AddForceAtPosition(force, spaceShip.flame_Effects["left_forward"].transform.position);
+            spaceShip.rigi.AddForceAtPosition(force1, spaceShip.flame_Effects["right_back"].transform.position);
+            //spaceShip.transform.Rotate(Vector3.up * spaceShip.SasForce);
 
 
         }
